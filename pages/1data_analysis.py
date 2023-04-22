@@ -8,7 +8,7 @@ from sqlalchemy import create_engine
 import pandas as pd
 import warnings
 import streamlit as st
-from google.oauth2 import service_account
+from google.oauth2 import ServiceAccountCredentials
 from gsheetsdb import connect
 # Authenticate with Google Drive
 # Create a connection object.
