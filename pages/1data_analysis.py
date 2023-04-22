@@ -8,7 +8,7 @@ from sqlalchemy import create_engine
 import pandas as pd
 import warnings
 import streamlit as st
-from google.oauth2 import ServiceAccountCredentials
+from google.oauth2 import service_account
 from gsheetsdb import connect
 # Authenticate with Google Drive
 # Create a connection object.
@@ -20,10 +20,17 @@ from gsheetsdb import connect
 # )
 #conn = connect(credentials=credentials)
 
-creds = ServiceAccountCredentials.from_json_keyfile_name('powerforecasting-823bf86ac870.json', [
+credentials = service_account.Credentials.from_service_account_info(
+    st.secrets["gcp_service_account"],
+    scopes=[
         "https://www.googleapis.com/auth/spreadsheets",
-    ])
-client = gspread.authorize(creds)
+    ],
+)
+# creds = service_account.Credentials.from_service_account_file('powerforecasting-823bf86ac870.json', [
+#         "https://www.googleapis.com/auth/spreadsheets"
+#     ],subject="power-test@powerforecasting.iam.gserviceaccount.com"
+#  )
+client = gspread.authorize(credentials)
  
 sh = client.open('TestSheet').worksheet('names')  
 row = ["22-04-2023","Mumbai"]
