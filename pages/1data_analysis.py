@@ -11,6 +11,7 @@ import streamlit as st
 from google.oauth2 import service_account
 from gsheetsdb import connect
 import gspread
+from gspread_pandas import Spread,Client
 # Authenticate with Google Drive
 # Create a connection object.
 # credentials = service_account.Credentials.from_service_account_info(
@@ -32,11 +33,12 @@ credentials = service_account.Credentials.from_service_account_info(
 #         "https://www.googleapis.com/auth/spreadsheets"
 #     ],subject="power-test@powerforecasting.iam.gserviceaccount.com"
 #  )
-client = gspread.authorize(credentials)
- 
-sh = client.open('GenerationSheet').worksheet('one')  
-row = ["22-04-2023","Mumbai"]
-sh.append_row(row)
+client = Client(scope=credentials.scopes,creds=credentials)
+sheetname='GenerationSheet'
+spread=Spread(sheetname,client=client)
+st.write(spread.url)
+sh=client.open(sheetname)
+wlist=sh.worksheets;
 st.write("Inserted")
 with open('style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
