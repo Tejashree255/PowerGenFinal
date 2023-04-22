@@ -18,7 +18,7 @@ from gsheetsdb import connect
 #         "https://www.googleapis.com/auth/spreadsheets",
 #     ],
 # )
-conn = connect(credentials=credentials)
+#conn = connect(credentials=credentials)
 
 creds = ServiceAccountCredentials.from_json_keyfile_name('powerforecasting-823bf86ac870.json', [
         "https://www.googleapis.com/auth/spreadsheets",
