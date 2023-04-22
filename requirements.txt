@@ -12,3 +12,4 @@ xlrd==1.2.0
 pydrive
 gspread_pandas
 gspread
+gspread_dataframe
