@@ -12,23 +12,23 @@ from google.oauth2 import service_account
 from gsheetsdb import connect
 # Authenticate with Google Drive
 # Create a connection object.
-credentials = service_account.Credentials.from_service_account_info(
-    st.secrets["gcp_service_account"],
-    scopes=[
-        "https://www.googleapis.com/auth/spreadsheets",
-    ],
-)
+# credentials = service_account.Credentials.from_service_account_info(
+#     st.secrets["gcp_service_account"],
+#     scopes=[
+#         "https://www.googleapis.com/auth/spreadsheets",
+#     ],
+# )
 conn = connect(credentials=credentials)
-@st.cache_resource(ttl=100)
-def run_query(query):
-    rows = conn.execute(query, headers=1)
-    rows = rows.fetchall()
-    return rows
 
-sheet_url = st.secrets["private_gsheets_url"]
-run_query(f'insert into "{sheet_url}" (date,Site_name) VALUES (22-04-2023,Mumbai)')
-st.write('Inserted')
-
+creds = ServiceAccountCredentials.from_json_keyfile_name('powerforecasting-823bf86ac870.json', [
+        "https://www.googleapis.com/auth/spreadsheets",
+    ])
+client = gspread.authorize(creds)
+ 
+sh = client.open('TestSheet').worksheet('names')  
+row = ["22-04-2023","Mumbai"]
+sh.append_row(row)
+st.write("Inserted")
 with open('style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 st.subheader('Data Analysis')
