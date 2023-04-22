@@ -26,7 +26,7 @@ def run_query(query):
     return rows
 
 sheet_url = st.secrets["private_gsheets_url"]
-run_query(f'INSERT INTO "{sheet_url}" (date,Site_name) VALUES (22-04-2023,Mumbai)')
+run_query(f'insert into "{sheet_url}" (date,Site_name) VALUES (22-04-2023,Mumbai)')
 st.write('Inserted')
 
 with open('style.css') as f:
