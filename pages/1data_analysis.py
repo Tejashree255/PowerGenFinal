@@ -33,7 +33,7 @@ worksheet1 = gs.worksheet('one')
 st.write(worksheet1)
 
 
-df=pd.DataFrame({'date':'23-04-2023','Site_name':'Pune'},index=2)
+df=pd.DataFrame({'date':'23-04-2023','Site_name':'Pune'},index=[2])
 set_with_dataframe(worksheet=worksheet1, dataframe=df, include_index=False,
 include_column_header=True, resize=True)
 st.write('Inserted!')
