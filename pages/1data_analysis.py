@@ -26,16 +26,15 @@ def run_query(query):
     return rows
 
 sheet_url = st.secrets["private_gsheets_url"]
-rows = run_query(f'INSERT INTO "{sheet_url}" (date,Site_name) VALUES (22-04-2023,Mumbai)')
-
+run_query(f'INSERT INTO "{sheet_url}" (date,Site_name) VALUES (22-04-2023,Mumbai)')
+st.write('Inserted')
 
 with open('style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 st.subheader('Data Analysis')
 
 # Print results.
-for row in rows:
-    st.write(f"{row.date} has a :{row.Site_name}:")
+#
 warnings.filterwarnings("ignore")
 
 #db_connection = create_engine('mysql+pymysql://root:purva@localhost:3306/TEIM_JSON5')             #change database name
