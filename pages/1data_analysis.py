@@ -13,7 +13,7 @@ from gsheetsdb import connect
 # Authenticate with Google Drive
 # Create a connection object.
 credentials = service_account.Credentials.from_service_account_info(
-    st.secrets["private_gsheets_url"],
+    st.secrets["gcp_service_account"],
     scopes=[
         "https://www.googleapis.com/auth/spreadsheets",
     ],
