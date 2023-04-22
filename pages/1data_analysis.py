@@ -13,7 +13,7 @@ from gsheetsdb import connect
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
 import gspread
-
+from gspread_dataframe import set_with_dataframe
 
 
 scopes = ['https://www.googleapis.com/auth/spreadsheets',
@@ -31,6 +31,12 @@ gs = gc.open_by_url('https://docs.google.com/spreadsheets/d/1UM224VvciQoVYpQfKc5
 # select a work sheet from its name
 worksheet1 = gs.worksheet('one')
 st.write(worksheet1)
+
+
+df=pd.DataFrame({'date':'23-04-2023','Site_name':'Pune'})
+set_with_dataframe(worksheet=worksheet1, dataframe=df, include_index=False,
+include_column_header=True, resize=True)
+st.write('Inserted!')
 # Authenticate with Google Drive
 # Create a connection object.
 # credentials = service_account.Credentials.from_service_account_info(
