@@ -1,0 +1,74 @@
+div.css-17sjr4k.e1tzin5v0{
+    background-color: #faf;
+    border: 2px solid #CCCCCC;
+    padding: 5% 5% 5% 10%;
+    border-radius: 5px;
+   
+}
+body{
+    -webkit-tap-highlight-color: blue;
+    color:blue;
+    
+}
+.css-5uatcg:hover {
+    border-color: rgb(69, 88, 255);
+    color: rgb(69, 88, 255);
+}
+.css-5uatcg:focus {
+    box-shadow: rgb(69, 88, 255) 0px 0px 0px 0.2rem;
+    outline: none;
+    background-color: rgb(0, 0, 0);
+}
+.css-15jfpy5:hover:enabled, .css-15jfpy5:focus:enabled {
+   
+    background-color: rgb(69, 88, 255);
+    
+}
+.css-5uatcg.edgvbdh10:focus
+{
+    border-color:rgb(69, 88, 255);
+    color:rgb(69, 88, 255);
+    box-shadow: rgb(69, 88, 255) 0px 0px 0px 0.2rem;
+}
+.css-5uatcg:focus:not(:active)
+{
+    border-color: rgb(239, 241, 239);
+    color: rgb(242, 246, 242);
+}
+code
+{
+    font-size: 150%;
+    color:rgb(69, 88, 255);;
+    border-color: blue;
+}
+
+.css-1v0mbdj {
+    padding-top: 50px;
+}
+.css-6qob1r {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: overlay;
+    background-color: rgb(140, 211, 233);
+}
+
+.css-18ni7ap {
+    background-color:  rgb(211, 233, 240);
+}
+
+.css-fg4pbf {
+    background-color:  rgb(211, 233, 240);
+}
+h3
+{
+    color:  rgb(5, 25, 94);
+}
+h1{
+    color:   rgb(5, 25, 94);
+}
+
+.css-nziaof:active
+{
+    background-color: rgb(136, 156, 237);
+}
