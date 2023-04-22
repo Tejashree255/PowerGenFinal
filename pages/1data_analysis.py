@@ -8,10 +8,29 @@ from sqlalchemy import create_engine
 import pandas as pd
 import warnings
 import streamlit as st
-from google.oauth2 import service_account
+from google.oauth2.service_account import Credentials
 from gsheetsdb import connect
-import gspread
-from gspread_pandas import Spread,Client
+from pydrive.auth import GoogleAuth
+from pydrive.drive import GoogleDrive
+
+
+
+
+scopes = ['https://www.googleapis.com/auth/spreadsheets',
+          'https://www.googleapis.com/auth/drive']
+
+credentials = Credentials.from_service_account_file('/path/to/json/credentials/', scopes=scopes)
+
+gc = gspread.authorize(credentials)
+
+gauth = GoogleAuth()
+drive = GoogleDrive(gauth)
+
+# open a google sheet
+gs = gc.open_by_url('https://docs.google.com/spreadsheets/d/1UM224VvciQoVYpQfKc533VwO28XjHrWrgwfNj669yMA/edit?usp=sharing')
+# select a work sheet from its name
+worksheet1 = gs.worksheet('one')
+st.write(worksheet1)
 # Authenticate with Google Drive
 # Create a connection object.
 # credentials = service_account.Credentials.from_service_account_info(
@@ -22,24 +41,24 @@ from gspread_pandas import Spread,Client
 # )
 #conn = connect(credentials=credentials)
 
-credentials = service_account.Credentials.from_service_account_info(
-    st.secrets["gcp_service_account"],
-    scopes=[
+# credentials = service_account.Credentials.from_service_account_info(
+#     st.secrets["gcp_service_account"],
+#     scopes=[
       
-        "https://www.googleapis.com/auth/spreadsheets"
-    ],
-)
+#         "https://www.googleapis.com/auth/spreadsheets"
+#     ],
+# )
 # creds = service_account.Credentials.from_service_account_file('powerforecasting-823bf86ac870.json', [
 #         "https://www.googleapis.com/auth/spreadsheets"
 #     ],subject="power-test@powerforecasting.iam.gserviceaccount.com"
 #  )
-client = Client(scope=credentials.scopes,creds=credentials)
-sheetname="GenerationSheet"
-spread=Spread(sheetname,client=client)
-st.write(spread.url)
-sh=client.open(sheetname)
-wlist=sh.worksheets;
-st.write("Inserted")
+# client = Client(scope=credentials.scopes,creds=credentials)
+# sheetname="GenerationSheet"
+# spread=Spread(sheetname,client=client)
+# st.write(spread.url)
+# sh=client.open(sheetname)
+# wlist=sh.worksheets;
+# st.write("Inserted")
 with open('style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 st.subheader('Data Analysis')
