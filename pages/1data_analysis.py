@@ -25,7 +25,7 @@ from gspread_pandas import Spread,Client
 credentials = service_account.Credentials.from_service_account_info(
     st.secrets["gcp_service_account"],
     scopes=[
-        "https://spreadsheets.google.com/feeds",
+      
         "https://www.googleapis.com/auth/spreadsheets"
     ],
 )
