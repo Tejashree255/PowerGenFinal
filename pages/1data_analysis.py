@@ -33,9 +33,11 @@ worksheet1 = gs.worksheet('one')
 st.write(worksheet1)
 
 
-df=pd.DataFrame({'date':'23-04-2023','Site_name':'Pune'},index=[2])
-set_with_dataframe(worksheet=worksheet1, dataframe=df, include_index=False,
-include_column_header=True, resize=True)
+df=pd.DataFrame({'date':['24-04-2023'],'Site_name':['Mumbai']},index=[3])
+#set_with_dataframe(worksheet=worksheet1, dataframe=df, include_index=False,
+#include_column_header=True, resize=True)
+df_values = df.values.tolist()
+gs.values_append('GenerationSheet', {'valueInputOption': 'USER_ENTERED'}, {'values': df_values})
 st.write('Inserted!')
 # Authenticate with Google Drive
 # Create a connection object.
