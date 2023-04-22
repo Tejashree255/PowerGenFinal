@@ -35,7 +35,7 @@ st.subheader('Data Analysis')
 
 # Print results.
 for row in rows:
-    st.write(f"{row.Gen. Date} has a :{row.site}:")
+    st.write(f"{row.date} has a :{row.Site_name}:")
 warnings.filterwarnings("ignore")
 
 #db_connection = create_engine('mysql+pymysql://root:purva@localhost:3306/TEIM_JSON5')             #change database name
