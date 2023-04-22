@@ -25,7 +25,7 @@ def run_query(query):
     rows = rows.fetchall()
     return rows
 
-sheet_url = st.secrets["https://docs.google.com/spreadsheets/d/1UM224VvciQoVYpQfKc533VwO28XjHrWrgwfNj669yMA/edit?usp=sharing"]
+sheet_url = st.secrets["private_gsheets_url"]
 rows = run_query(f'SELECT * FROM "{sheet_url}"')
 
 
