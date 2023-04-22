@@ -10,6 +10,7 @@ import warnings
 import streamlit as st
 from google.oauth2 import service_account
 from gsheetsdb import connect
+import gspread
 # Authenticate with Google Drive
 # Create a connection object.
 # credentials = service_account.Credentials.from_service_account_info(
