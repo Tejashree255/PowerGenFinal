@@ -34,7 +34,7 @@ credentials = service_account.Credentials.from_service_account_info(
 #     ],subject="power-test@powerforecasting.iam.gserviceaccount.com"
 #  )
 client = Client(scope=credentials.scopes,creds=credentials)
-sheetname='GenerationSheet'
+sheetname="GenerationSheet"
 spread=Spread(sheetname,client=client)
 st.write(spread.url)
 sh=client.open(sheetname)
