@@ -24,7 +24,8 @@ import gspread
 credentials = service_account.Credentials.from_service_account_info(
     st.secrets["gcp_service_account"],
     scopes=[
-        "https://www.googleapis.com/auth/spreadsheets",
+        "https://spreadsheets.google.com/feeds",
+        "https://www.googleapis.com/auth/spreadsheets"
     ],
 )
 # creds = service_account.Credentials.from_service_account_file('powerforecasting-823bf86ac870.json', [
